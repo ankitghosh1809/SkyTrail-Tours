@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkyTrail Tours helps you discover and book memorable travel experiences across India.">
+  <title>SkyTrail Tours | Travel and Tourism</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#home" class="brand">SkyTrail Tours</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">Menu</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#planner">Planner</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">Adventure Starts Here</p>
+        <h1>Travel smart. Explore deeply. Collect stories, not just selfies.</h1>
+        <p class="hero-subtitle">
+          Find destinations, filter by style and budget, and plan your next trip in minutes.
+        </p>
+        <div class="hero-actions">
+          <a href="#destinations" class="btn btn-primary">Explore Destinations</a>
+          <a href="#planner" class="btn btn-outline">Build My Itinerary</a>
+        </div>
+        <div class="hero-stats">
+          <article><h3>120+</h3><p>Curated Tours</p></article>
+          <article><h3>28</h3><p>States Covered</p></article>
+          <article><h3>10k+</h3><p>Happy Travelers</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="destinations">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Popular Packages</p>
+          <h2>Choose your perfect destination</h2>
+        </div>
+        <div class="filter-panel">
+          <label class="input-wrap">
+            <span>Search</span>
+            <input id="searchInput" type="text" placeholder="Try: Jaipur, Manali, Kochi">
+          </label>
+          <label class="input-wrap">
+            <span>Region</span>
+            <select id="regionFilter">
+              <option value="all">All Regions</option>
+              <option value="north">North India</option>
+              <option value="south">South India</option>
+              <option value="east">East India</option>
+              <option value="west">West India</option>
+              <option value="northeast">North East India</option>
+            </select>
+          </label>
+          <label class="input-wrap">
+            <span>Budget</span>
+            <select id="budgetFilter">
+              <option value="all">Any Budget</option>
+              <option value="budget">Budget</option>
+              <option value="mid">Mid Range</option>
+              <option value="luxury">Luxury</option>
+            </select>
+          </label>
+          <label class="input-wrap">
+            <span>Sort by</span>
+            <select id="sortFilter">
+              <option value="popular">Most Popular</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </label>
+          <button class="btn btn-neutral" id="resetFilters">Reset</button>
+        </div>
+        <p class="result-text" id="resultText">Loading destinations...</p>
+        <div class="destinations-grid" id="destinationsGrid"></div>
+      </div>
+    </section>
+
+    <section class="section planner-section" id="planner">
+      <div class="container planner-grid">
+        <div class="planner-copy">
+          <p class="eyebrow">Trip Planner</p>
+          <h2>Create a quick itinerary</h2>
+          <p>Pick your travel style, number of days, and interests. We will generate a simple day plan for you.</p>
+        </div>
+        <form class="planner-card" id="plannerForm">
+          <label class="input-wrap">
+            <span>Travel Style</span>
+            <select id="styleInput" required>
+              <option value="">Select style</option>
+              <option value="relaxed">Relaxed</option>
+              <option value="balanced">Balanced</option>
+              <option value="adventure">Adventure</option>
+            </select>
+          </label>
+          <label class="input-wrap">
+            <span>Trip Duration (days)</span>
+            <input id="daysInput" type="range" min="3" max="14" value="6">
+            <strong id="daysValue">6 days</strong>
+          </label>
+          <label class="input-wrap">
+            <span>Interest</span>
+            <select id="interestInput" required>
+              <option value="">Select focus</option>
+              <option value="culture">Culture and Heritage</option>
+              <option value="food">Food Trails</option>
+              <option value="nature">Nature and Landscapes</option>
+              <option value="nightlife">Nightlife</option>
+            </select>
+          </label>
+          <button class="btn btn-primary" type="submit">Generate Plan</button>
+        </form>
+      </div>
+      <div class="container">
+        <article class="itinerary-output" id="itineraryOutput">
+          <h3>Your itinerary will appear here</h3>
+          <p>Use the planner above to get a simple day-by-day idea.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="stories">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Traveler Stories</p>
+          <h2>What our travelers say</h2>
+        </div>
+        <div class="story-card">
+          <p id="storyQuote">"SkyTrail made our honeymoon stress-free. Every day felt magical and smooth."</p>
+          <h4 id="storyAuthor">Aarav and Neha, Maldives Escape</h4>
+          <div class="story-controls">
+            <button class="btn btn-neutral" id="prevStory" type="button">Previous</button>
+            <button class="btn btn-neutral" id="nextStory" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-inner">
+      <div>
+        <h3>SkyTrail Tours</h3>
+        <p>Travel made easy, memorable, and personal.</p>
+      </div>
+      <div>
+        <p>Email: hello@skytrailtours.com</p>
+        <p>Phone: +91 90000 12345</p>
+      </div>
+      <button class="btn btn-primary" id="openBookingModal" type="button">Book a Consultation</button>
+    </div>
+  </footer>
+
+  <!-- ===== BOOKING MODAL ===== -->
+  <div class="booking-modal" id="bookingModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Book a Destination Plan</h3>
+        <button class="close-btn" id="closeBookingModal" type="button">✕</button>
+      </div>
+
+      <!-- Step 1: Input form -->
+      <form id="bookingForm" class="booking-form" style="display:grid">
+        <div class="form-cols">
+          <label class="input-wrap">
+            <span>Full Name</span>
+            <input type="text" id="nameInput" placeholder="Ankit Sharma" required>
+          </label>
+          <label class="input-wrap">
+            <span>Email</span>
+            <input type="email" id="emailInput" placeholder="you@email.com" required>
+          </label>
+        </div>
+
+        <div class="form-cols">
+          <label class="input-wrap">
+            <span>Origin City</span>
+            <input type="text" id="originInput" placeholder="e.g. Mumbai" required>
+          </label>
+          <label class="input-wrap">
+            <span>Preferred Destination</span>
+            <select id="destinationInput" required></select>
+          </label>
+        </div>
+
+        <div class="form-cols">
+          <label class="input-wrap">
+            <span>Travel Date</span>
+            <input type="date" id="travelDateInput" required>
+          </label>
+          <label class="input-wrap">
+            <span>Trip Days</span>
+            <input type="number" id="bookingDaysInput" min="2" max="10" value="4" required>
+          </label>
+        </div>
+
+        <div class="form-cols">
+          <label class="input-wrap">
+            <span>Transport Mode</span>
+            <select id="modeInput" required>
+              <option value="BUS">🚌 Bus</option>
+              <option value="TRAIN">🚆 Train</option>
+              <option value="FLIGHT">✈️ Flight</option>
+            </select>
+          </label>
+          <label class="input-wrap">
+            <span>Seat Preference</span>
+            <select id="seatInput">
+              <option value="WINDOW">Window</option>
+              <option value="AISLE">Aisle</option>
+              <option value="MIDDLE">Middle</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="form-cols">
+          <label class="input-wrap">
+            <span>Food Preference</span>
+            <select id="foodInput">
+              <option value="VEG">Vegetarian</option>
+              <option value="NON_VEG">Non-Vegetarian</option>
+              <option value="VEGAN">Vegan</option>
+              <option value="NONE">No Preference</option>
+            </select>
+          </label>
+          <label class="input-wrap">
+            <span>Payment Method</span>
+            <select id="paymentInput">
+              <option value="UPI">UPI</option>
+              <option value="CARD">Card</option>
+              <option value="NET_BANKING">Net Banking</option>
+              <option value="CASH">Cash</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="input-wrap">
+          <span>Additional Passengers (comma separated names, optional)</span>
+          <input type="text" id="passengersInput" placeholder="e.g. Priya Sharma, Rahul Verma">
+        </label>
+
+        <label class="input-wrap">
+          <span>Message</span>
+          <textarea id="messageInput" rows="3" placeholder="Any special requests or preferred dates..."></textarea>
+        </label>
+
+        <!-- Live fare preview -->
+        <article class="booking-details-output" id="bookingDetailsOutput">
+          <h4>Package Details</h4>
+          <p>Select a destination and days to view package details.</p>
+        </article>
+
+        <button class="btn btn-primary" type="submit" id="submitBookingBtn">Confirm Booking</button>
+      </form>
+
+      <!-- Step 2: Confirmation screen (hidden until booking succeeds) -->
+      <div id="bookingConfirmation" style="display:none; padding:1.2rem;">
+        <div style="text-align:center; padding:0.5rem 0 1rem;">
+          <div style="font-size:2.8rem;">✅</div>
+          <h3 style="margin-top:0.5rem;">Booking Confirmed!</h3>
+        </div>
+        <div id="confirmationDetails" class="booking-details-output"></div>
+        <button class="btn btn-primary" style="margin-top:1rem; width:100%;" id="closeConfirmBtn">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
