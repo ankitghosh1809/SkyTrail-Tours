@@ -17,7 +17,10 @@ import java.net.InetSocketAddress;
  */
 public class Server {
 
-    static final int    PORT     = 8080;
+    // Read PORT from environment variable (required by Koyeb/Railway/Render)
+    // Falls back to 8080 for local development
+    static final int    PORT     = Integer.parseInt(
+                                       System.getenv().getOrDefault("PORT", "8080"));
     static final String WEB_ROOT = "web";
 
     public static void main(String[] args) throws Exception {
